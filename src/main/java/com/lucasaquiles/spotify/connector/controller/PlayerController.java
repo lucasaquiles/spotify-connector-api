@@ -22,7 +22,7 @@ public class PlayerController {
 
     @GetMapping("/player/current")
     public ResponseEntity<PlayerResponse> currentPlayer(){
-
+        log("currentPlayer, request ...");
         PlayerResponse current = client.getCurrent(token);
         return new ResponseEntity<>(current, HttpStatus.OK);
     }
