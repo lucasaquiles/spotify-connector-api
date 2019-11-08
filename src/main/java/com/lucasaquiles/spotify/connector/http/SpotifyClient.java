@@ -13,5 +13,5 @@ import org.springframework.web.bind.annotation.RequestHeader;
 public interface SpotifyClient {
 
     @GetMapping(value = "${spotify.api.player.current}")
-    PlayerResponse getCurrent(@RequestHeader("Authorization") String bearerToken);
+    PlayerResponse getCurrent(@RequestHeader("Authorization") String token);
 }
