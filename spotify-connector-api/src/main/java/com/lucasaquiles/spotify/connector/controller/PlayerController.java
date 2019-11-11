@@ -17,13 +17,12 @@ public class PlayerController {
     @Autowired
     private SpotifyClient client;
 
-    @Value("${spotify.api.token}")
-    private String token;
 
     @GetMapping("/player/current")
     public ResponseEntity<PlayerResponse> currentPlayer(){
         log.info("currentPlayer, request ...");
-        PlayerResponse current = client.getCurrent(token);
+
+        PlayerResponse current = client.getCurrent();
         return new ResponseEntity<>(current, HttpStatus.OK);
     }
 }
