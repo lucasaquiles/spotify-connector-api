@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
         name = "SpotifyClient",
         url = "${spotify.api.url}",
         decode404 = true,
-
-        configuration = SpotifyConfiguration.class
+        configuration = Config.class
 )
 public interface SpotifyClient {
 
