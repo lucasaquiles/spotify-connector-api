@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -19,10 +20,10 @@ public class PlayerController {
 
 
     @GetMapping("/player/current")
-    public ResponseEntity<PlayerResponse> currentPlayer(){
-        log.info("currentPlayer, request ...");
+    public ResponseEntity<PlayerResponse> currentPlayer(@RequestParam String token){
+        log.info("currentPlayer, request ... {}", token);
 
-        PlayerResponse current = client.getCurrent();
+        PlayerResponse current = client.getCurrent("Bearer "+ token);
         return new ResponseEntity<>(current, HttpStatus.OK);
     }
 }
