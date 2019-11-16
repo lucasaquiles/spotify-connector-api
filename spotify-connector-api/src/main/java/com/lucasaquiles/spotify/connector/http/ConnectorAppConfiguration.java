@@ -6,7 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-@EnableWebSecurity
+
 @Configuration
 public class ConnectorAppConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -15,7 +15,8 @@ public class ConnectorAppConfiguration extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .anyRequest().authenticated()
+                .anyRequest()
+                .anonymous()
                 .and()
                 .formLogin()
                 .and()
